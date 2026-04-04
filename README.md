@@ -47,14 +47,14 @@ python -m playwright install chromium
 
 Abra o CMD e cole esse comando:
 ```bash
-curl -o "%USERPROFILE%\Desktop\Filtrador-Produtos-Xianyu.py" https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py
+curl -o "%USERPROFILE%\Filtrador-Produtos-Xianyu.py" https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py
 ```
 
 ### Como usar
 
 **1. Rode o script:**
 ```bash
-python "%USERPROFILE%\Desktop\Filtrador-Produtos-Xianyu.py"
+python "%USERPROFILE%\Filtrador-Produtos-Xianyu.py"
 ```
 
 **2. Cole o ID ou o link do perfil do vendedor:**
@@ -150,14 +150,13 @@ python -m playwright install chromium
 
 Open CMD and paste this command:
 ```bash
-curl -O https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py
-```
+curl -o "%USERPROFILE%\Filtrador-Produtos-Xianyu.py" https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py```
 
 ### How to use
 
 **1. Run the script:**
 ```bash
-python Filtrador-Produtos-Xianyu.py
+python "%USERPROFILE%\Filtrador-Produtos-Xianyu.py"
 ```
 
 **2. Paste the seller's ID or profile link:**
