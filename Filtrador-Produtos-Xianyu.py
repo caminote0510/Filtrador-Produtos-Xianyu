@@ -94,6 +94,56 @@ async def scraper(seller_id: str, palavra_chave: str) -> list[dict]:
         # Aguarda a página carregar os itens
         await page.wait_for_timeout(4000)
 
+        # Fecha o pop-up de login automaticamente
+        try:
+            seletores_fechar = [
+                'button[aria-label="Close"]',
+                'button[aria-label="close"]',
+                '.close-btn',
+                '[class*="closeBtn"]',
+                '[class*="CloseBtn"]',
+                '[class*="close-icon"]',
+            ]
+            fechou = False
+            for seletor in seletores_fechar:
+                botao_x = await page.query_selector(seletor)
+                if botao_x:
+                    await botao_x.click()
+                    fechou = True
+                    break
+
+            if not fechou:
+                # Tenta pressionar ESC para fechar o modal
+                await page.keyboard.press('Escape')
+
+            await page.wait_for_timeout(1000)
+            print("✅ Pop-up de login fechado.")
+        except Exception:
+            pass  # Se não tiver pop-up, continua normalmente
+
+        # Tenta clicar no botão "在售" (apenas em venda) para ignorar os já vendidos
+        try:
+            botao_em_venda = await page.query_selector('text=在售')
+            if not botao_em_venda:
+                # Tenta seletor alternativo por texto parcial
+                botao_em_venda = await page.evaluate('''() => {
+                    const els = document.querySelectorAll('*');
+                    for (const el of els) {
+                        if (el.childElementCount === 0 && el.textContent.trim().startsWith('在售')) {
+                            return el;
+                        }
+                    }
+                    return null;
+                }''')
+            if botao_em_venda:
+                await botao_em_venda.click()
+                print("✅ Filtro '在售' (em venda) ativado — ignorando anúncios já vendidos.")
+                await page.wait_for_timeout(2000)
+            else:
+                print("⚠️  Botão '在售' não encontrado — coletando todos os anúncios.")
+        except Exception:
+            print("⚠️  Não foi possível ativar o filtro '在售' — coletando todos os anúncios.")
+
         pagina_atual = 1
         max_paginas = 50  # segurança para não rodar infinito
 
