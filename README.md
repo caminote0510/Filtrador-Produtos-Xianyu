@@ -76,11 +76,38 @@ python Filtrador-Produtos-Xianyu.py
 
 ---
 
+### 🤖 Não sabe chinês? Use esse prompt com uma IA!
+
+Se você não sabe ler chinês e não sabe qual palavra-chave usar, copie o título de um anúncio do vendedor e use o prompt abaixo em qualquer IA (ChatGPT, Claude, Gemini, etc). Ela vai extrair a palavra-chave certa para você usar no filtro.
+
+> **Como usar:** copie o prompt, cole na IA da sua preferência, substitua os campos entre colchetes e a IA te devolve a palavra-chave pronta.
+
+```
+Você é um assistente especializado em extrair palavras-chave de títulos de anúncios da Goofish (Xianyu) para uso em filtros de busca.
+
+Informações do anúncio: [COLE AS INFORMAÇÕES AQUI]
+Quero filtrar por: [DESCREVA O QUE VOCÊ QUER EM PORTUGUÊS]
+
+Sua tarefa:
+1. Identifique no título a parte que referencia o que descrevi
+2. Extraia SOMENTE os caracteres originais do título — não traduza, não invente
+3. A palavra-chave deve ser curta (1 a 4 palavras) para o filtro funcionar bem
+4. Se houver mais de uma opção, escolha a mais específica e única
+5. Responda apenas com a palavra-chave extraída, sem explicações adicionais
+```
+
+**Exemplo:**
+- Título do anúncio: `佳明Garmin 165m 黑音乐款 运动手表`
+- Quero filtrar por: `relógio Garmin modelo 165`
+- IA responde: `佳明165m`
+
+---
+
 ## 🇺🇸 English
 
 ### What is this?
 
-A tool that visits any **Goofish** (the international version of Xianyu) **SLLER'S PROFILE**, filters listings by your chosen keyword, and automatically generates an **Excel spreadsheet** with:
+A tool that visits any **Goofish** (the international version of Xianyu) **SELLER'S PROFILE**, filters listings by your chosen keyword, and automatically generates an **Excel spreadsheet** with:
 
 - 📝 Listing title
 - 💰 Price (sorted from lowest to highest)
@@ -139,20 +166,47 @@ python Filtrador-Produtos-Xianyu.py
 
 ### Tips
 
-- Keywords can mix **Chinese and ASCII (American Standard Code for Information Interchange) characters**. Ex: `佳明165m`
+- Keywords can mix **Chinese and Latin characters**. Ex: `佳明165m`
 - The filter is smart: it breaks the keyword into parts and accepts listings that contain **all parts**, even in a different order
 - Leave the keyword **blank** to export all listings from the seller
 - Results are already **sorted from lowest to highest price**
 
 ---
 
+### 🤖 Don't know Chinese? Use this AI prompt!
+
+If you don't know Chinese and aren't sure which keyword to use, copy a listing title from the seller's profile and use the prompt below with any AI (ChatGPT, Claude, Gemini, etc). It will extract the right keyword for you to use in the filter.
+
+> **How to use:** copy the prompt, paste it into your preferred AI, replace the fields in brackets, and the AI will return the ready-to-use keyword.
+
+```
+You are an assistant specialized in extracting keywords from Goofish (Xianyu) listing titles for use in search filters.
+
+Listing information: [PASTE THE INFORMATION HERE]
+I want to filter by: [DESCRIBE WHAT YOU WANT IN ENGLISH]
+
+Your task:
+1. Identify in the title the part that references what I described
+2. Extract ONLY the original characters from the title — do not translate, do not invent
+3. The keyword should be short (1 to 4 words) for the filter to work well
+4. If there is more than one option, choose the most specific and unique one
+5. Reply only with the extracted keyword, no additional explanations
+```
+
+**Example:**
+- Listing title: `佳明Garmin 165m 黑音乐款 运动手表`
+- I want to filter by: `Garmin 165 watch`
+- AI replies: `佳明165m`
+
+---
+
 ## 📁 Estrutura do projeto / Project structure
 
 ```
-goofish-filtro-de-produtos/
+Filtrador-Produtos-Xianyu/
 │
-├── goofish_scraper.py   # Script principal / Main script
-└── README.md            # Este arquivo / This file
+├── Filtrador-Produtos-Xianyu.py   # Script principal / Main script
+└── README.md                      # Este arquivo / This file
 ```
 
 ---
