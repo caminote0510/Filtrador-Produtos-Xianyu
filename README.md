@@ -2,6 +2,7 @@
 ### *Product Filter by Seller*
 
 > Encontre exatamente o que procura dentro da loja de qualquer vendedor do Goofish/Xianyu.
+
 > Find exactly what you're looking for inside any Goofish/Xianyu seller's store.
 
 ---
