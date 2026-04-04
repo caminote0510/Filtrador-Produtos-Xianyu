@@ -26,23 +26,28 @@ Vendedores grandes podem ter **milhares de produtos**. Sem essa ferramenta, voc�
 - Python 3.10 ou superior → [python.org](https://www.python.org/downloads/)
 - Conexão com a internet
 
-### Instalação
+### Instalação das Dependências
+
+- Python 3.10 ou superior → [python.org](https://www.python.org/downloads/)
+
+**1. Instale as dependências:**
+```bash
+python -m pip install playwright openpyxl
+```
+
+**2. Instale o navegador:**
+```bash
+python -m playwright install chromium
+```
+**3. FECHE O CMD**
+
+### Instalação do Programa
 
 **1. Baixe o script pelo CMD:**
 
 Abra o CMD e cole esse comando:
 ```bash
 curl -O https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py
-```
-
-**2. Instale as dependências:**
-```bash
-python -m pip install playwright openpyxl
-```
-
-**3. Instale o navegador:**
-```bash
-python -m playwright install chromium
 ```
 
 ### Como usar
@@ -127,23 +132,25 @@ Large sellers can have **thousands of products**. Without this tool, you'd need 
 - Python 3.10 or higher → [python.org](https://www.python.org/downloads/)
 - Internet connection
 
-### Installation
+### Dependency Installation
+- Python 3.10 or higher → [python.org](https://www.python.org/downloads/)
 
+**1. Install dependencies:**
+```bash
+python -m pip install playwright openpyxl
+```
+**2. Install the browser:**
+```bash
+python -m playwright install chromium
+```
+**3. CLOSE THE CMD**
+
+### Program Installation
 **1. Download the script via CMD:**
 
 Open CMD and paste this command:
 ```bash
 curl -O https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py
-```
-
-**2. Install dependencies:**
-```bash
-python -m pip install playwright openpyxl
-```
-
-**3. Install the browser:**
-```bash
-python -m playwright install chromium
 ```
 
 ### How to use
