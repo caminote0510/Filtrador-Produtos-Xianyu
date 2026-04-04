@@ -111,6 +111,12 @@ Sua tarefa:
 - Quero filtrar por: `relógio Garmin modelo 165`
 - IA responde: `佳明165m`
 
+
+**DESINSTALAR**🗑
+
+```
+python -m pip uninstall playwright openpyxl pyee greenlet et-xmlfile typing-extensions -y
+```
 ---
 
 ## 🇺🇸 English
@@ -214,6 +220,12 @@ Your task:
 佳明手表怎么用和辨别真假：1.手机下载佳明connect 打开查找设备会搜索到你的手表（手机会显示手表的型号），接着手表会出现6位数随机的配对码，手机输入这个配置码就可以链接开始设置手表，设置好就可以用啦！2.可以拨打佳明客服400电话报SN码，客服小姐姐会告诉你手表型号还有是否在保中`
 - I want to filter by: `Garmin 165 watch`
 - AI replies: `佳明165m`
+
+**Uninstall**🗑
+
+```
+python -m pip uninstall playwright openpyxl pyee greenlet et-xmlfile typing-extensions -y
+```
 
 ---
 
