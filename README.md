@@ -149,8 +149,10 @@ python -m playwright install chromium
 **1. Download the script via CMD:**
 
 Open CMD and paste this command:
+
 ```bash
-curl -o "%USERPROFILE%\Filtrador-Produtos-Xianyu.py" https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py```
+curl -o "%USERPROFILE%\Filtrador-Produtos-Xianyu.py" https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py
+```
 
 ### How to use
 
