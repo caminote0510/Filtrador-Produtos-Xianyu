@@ -27,10 +27,11 @@ Vendedores grandes podem ter **milhares de produtos**. Sem essa ferramenta, voc�
 
 ### Instalação
 
-**1. Clone o repositório:**
+**1. Baixe o script pelo CMD:**
+
+Abra o CMD e cole esse comando:
 ```bash
-git clone https://github.com/caminote0510/Filtrador-Produtos-Xianyu.git
-cd Filtrador-Produtos-Xianyu
+curl -O https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py
 ```
 
 **2. Instale as dependências:**
@@ -96,10 +97,11 @@ Large sellers can have **thousands of products**. Without this tool, you'd need 
 
 ### Installation
 
-**1. Clone the repository:**
+**1. Download the script via CMD:**
+
+Open CMD and paste this command:
 ```bash
-git clone https://github.com/caminote0510/Filtrador-Produtos-Xianyu.git
-cd Filtrador-Produtos-Xianyu
+curl -O https://raw.githubusercontent.com/caminote0510/Filtrador-Produtos-Xianyu/main/Filtrador-Produtos-Xianyu.py
 ```
 
 **2. Install dependencies:**
