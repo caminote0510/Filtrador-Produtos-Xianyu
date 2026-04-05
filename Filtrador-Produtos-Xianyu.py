@@ -121,20 +121,26 @@ async def scraper(seller_id: str, palavra_chave: str) -> list[dict]:
         except Exception:
             pass  # Se não tiver pop-up, continua normalmente
 
-        # Tenta clicar no botão "在售" (apenas em venda) para ignorar os já vendidos
+        # Tenta clicar no botão "在售" pelo TEXTO, independente da posição na página
         try:
-            botao_em_venda = await page.query_selector('text=在售')
+            # Busca por divs com classe "tabItem" que contenham o texto 在售
+            handles = await page.query_selector_all('[class*="tabItem"]')
+            botao_em_venda = None
+            for el in handles:
+                txt = await el.inner_text()
+                if '在售' in txt:
+                    botao_em_venda = el
+                    break
+
+            # Fallback: varre span/div/button procurando texto que contenha 在售
             if not botao_em_venda:
-                # Tenta seletor alternativo por texto parcial
-                botao_em_venda = await page.evaluate('''() => {
-                    const els = document.querySelectorAll('*');
-                    for (const el of els) {
-                        if (el.childElementCount === 0 && el.textContent.trim().startsWith('在售')) {
-                            return el;
-                        }
-                    }
-                    return null;
-                }''')
+                handles = await page.query_selector_all('span, div, button')
+                for el in handles:
+                    txt = await el.inner_text()
+                    if txt.strip().startswith('在售') or txt.strip() == '在售':
+                        botao_em_venda = el
+                        break
+
             if botao_em_venda:
                 await botao_em_venda.click()
                 print("✅ Filtro '在售' (em venda) ativado — ignorando anúncios já vendidos.")
@@ -197,12 +203,30 @@ async def scraper(seller_id: str, palavra_chave: str) -> list[dict]:
                             titulo = linha
 
                     # Filtro por tokens: separa a palavra-chave em partes
-                    # Ex: "佳明165" → ["佳明", "165"]
-                    # O anúncio precisa ter TODOS os tokens, em qualquer ordem
+                    # Ex: "苹果16无锁" → ["苹果", "16", "无锁"]
+                    # Tokens numéricos (ex: "16") só batem com o TÍTULO, não com o preço
+                    # e precisam aparecer como número isolado (não dentro de "1659" ou "160")
                     if palavra_chave:
-                        texto_busca = (titulo + texto_completo).lower()
+                        titulo_busca = titulo.lower()
+                        tudo_busca   = (titulo + texto_completo).lower()
                         tokens = re.findall(r"[a-zA-Z0-9]+|[一-鿿]+", palavra_chave)
-                        if not all(t.lower() in texto_busca for t in tokens):
+
+                        token_ok = True
+                        for t in tokens:
+                            t_lower = t.lower()
+                            if t.isdigit():
+                                # Número puro: só busca no título e como palavra isolada
+                                # ex: "16" não pode estar dentro de "1659" ou "160"
+                                if not re.search(r'(?<!\d)' + re.escape(t_lower) + r'(?!\d)', titulo_busca):
+                                    token_ok = False
+                                    break
+                            else:
+                                # Texto normal: busca em tudo (título + texto completo)
+                                if t_lower not in tudo_busca:
+                                    token_ok = False
+                                    break
+
+                        if not token_ok:
                             continue
 
                     if titulo or preco:
