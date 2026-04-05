@@ -116,8 +116,17 @@ Sua tarefa:
 
 **DESINSTALAR**🗑
 
+**1. Desinstale as Depêndencias**
 ```
 python -m pip uninstall playwright openpyxl pyee greenlet et-xmlfile typing-extensions -y
+```
+**2. Desinstale o Chromium**
+```
+rmdir /s /q "%LOCALAPPDATA%\ms-playwright"
+```
+**3. Desinstale o arquivo .py**
+```
+del "%USERPROFILE%\Filtrador-Produtos-Xianyu.py"
 ```
 ---
 
@@ -225,8 +234,17 @@ Your task:
 
 **Uninstall**🗑
 
-```
+**1. Uninstall Dependencies**
+```bash
 python -m pip uninstall playwright openpyxl pyee greenlet et-xmlfile typing-extensions -y
+```
+**2. Uninstall Chromium**
+```bash
+rmdir /s /q "%LOCALAPPDATA%\ms-playwright"
+```
+**3. Delete the .py file**
+```bash
+del "%USERPROFILE%\Filtrador-Produtos-Xianyu.py"
 ```
 
 ---
